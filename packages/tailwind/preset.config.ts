@@ -2,7 +2,28 @@ import {
   Config
 } from 'tailwindcss'
 
+import plugin from 'tailwindcss/plugin'
+
 export const config: Partial<Config>  = {
+  plugins: [
+    plugin(({addUtilities})=>{
+      const utilitiesPaddingInline: any[] = Array
+        .from({length: 4}, (_, index)=>({
+          ['.padding-inline-' + index]: {
+            'padding-inline': 4*(index+1) + 'px'
+          }
+        }))
+
+      const utilitiesPaddingBlock: any[] = Array
+        .from({length: 4}, (_, index)=>({
+          ['.padding-block-' + index]: {
+            'padding-block': 4*(index+1) + 'px'
+          }
+        }))
+
+      addUtilities(utilitiesPaddingInline.concat(utilitiesPaddingBlock))
+    })
+  ],
   theme: {
     extend: {
       colors: {
