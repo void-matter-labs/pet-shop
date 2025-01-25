@@ -29,12 +29,14 @@ export const Primary: Story = {
   args: {
     primary: true,
     label: 'Button',
+    variant: 'tertiary'
   },
 };
 
 export const Secondary: Story = {
   args: {
     label: 'Button',
+    variant: 'secondary'
   },
 };
 
@@ -42,6 +44,7 @@ export const Large: Story = {
   args: {
     size: 'large',
     label: 'Button',
+    variant: 'primary'
   },
 };
 
@@ -49,5 +52,6 @@ export const Small: Story = {
   args: {
     size: 'small',
     label: 'Button',
+    variant:'tertiary'
   },
 };
