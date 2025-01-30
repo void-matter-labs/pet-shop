@@ -1,0 +1,12 @@
+{
+  "name": "pets-shop",
+  "targets": {
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/pets-shop/jest.config.ts"
+      }
+    }
+  }
+}
