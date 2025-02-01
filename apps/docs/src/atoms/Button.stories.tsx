@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
-import { Button } from '@pets/ui';
+import  { ButtonProps, Button } from '@pets/ui';
 
-const meta = {
+const meta: Meta<ButtonProps> = {
   title: 'Atoms/Button',
   component: Button,
   parameters: {
@@ -10,10 +10,26 @@ const meta = {
   },
   tags: ['autodocs'],
   args: { onClick: fn() },
-} satisfies Meta<typeof Button>;
+  argTypes: {
+    color: {
+      control: 'select',
+      options: ['primary', 'secondary', 'tertiary'],
+    },
+    border: {
+      control: 'select',
+      options: ['default', 'full', 'none'],
+    },
+    fullWidth: {
+      control: 'boolean',
+    },
+    children: {
+      control: 'text',
+    },
+  },
+};
 
 export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<ButtonProps>;
 
 export const Primary: Story = {
   args: {
@@ -22,21 +38,17 @@ export const Primary: Story = {
   },
 };
 
-export const FullWidth: Story = {
-  args: {
-    color: 'primary',
-    children: 'Click me',
-    fullWidth: true,
-  },
-  parameters: {
-    layout: 'fullscreen',
-  },
-};
-
 export const Secondary: Story = {
   args: {
-    color: 'transparent',
+    color: 'secondary',
     children: 'Click me',
   },
 };
 
+export const Tertiary: Story = {
+  args: {
+    color: 'tertiary',
+    children: 'Click me',
+    border: 'none',
+  },
+};
