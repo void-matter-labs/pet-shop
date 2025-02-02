@@ -26,19 +26,16 @@ jobs:
         run: pnpm install
 
       - name: Install Playwright
-        run: pnpm exec playwright install
+        run: pnpm exec playwright install-deps
 
       - name: Build Storybook
         run: pnpm nx build-storybook docs
 
-      - name: Run Storybook tests
+      - name: Start Storybook Server and Run Tests
         run: |
           pnpm exec concurrently -k -s first -n "SB,TEST" -c "magenta,blue" \
             "pnpm exec http-server apps/docs/storybook-static --port 6006 --silent" \
-            "pnpm exec wait-on tcp:6006 && pnpm test-storybook --coverage"
-
-      - name: Generate coverage report
-        run: pnpm coverage
+            "pnpm exec wait-on tcp:6006 && pnpm coverage"
 
       - name: SonarQube Scan
         uses: SonarSource/sonarqube-scan-action@v4
