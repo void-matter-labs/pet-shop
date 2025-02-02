@@ -26,16 +26,16 @@ jobs:
         run: pnpm install
 
       - name: Install Playwright
-        run: npx playwright install --with-deps
+        run: pnpm exec playwright install --with-deps
 
       - name: Build Storybook
         run: pnpm nx build-storybook docs
 
       - name: Run Storybook tests
         run: |
-          npx concurrently -k -s first -n "SB,TEST" -c "magenta,blue" \
-            "npx http-server apps/docs/storybook-static --port 6006 --silent" \
-            "npx wait-on tcp:6006 && pnpm test-storybook --coverage"
+          pnpm exec concurrently -k -s first -n "SB,TEST" -c "magenta,blue" \
+            "pnpm exec http-server apps/docs/storybook-static --port 6006 --silent" \
+            "pnpm exec wait-on tcp:6006 && pnpm test-storybook --coverage"
 
       - name: Generate coverage report
         run: pnpm coverage
