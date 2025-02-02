@@ -7,6 +7,15 @@ const config: StorybookConfig = {
     '@storybook/addon-essentials',
     '@chromatic-com/storybook',
     '@storybook/addon-interactions',
+    {
+      name: '@storybook/addon-coverage',
+      options: {
+        istanbul: {
+          include: ['../../../packages/pets-ui/src/**'],
+        }
+      }
+
+    }
   ],
   framework: {
     name: '@storybook/react-vite',

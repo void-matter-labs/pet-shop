@@ -9,17 +9,20 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "test:coverage": "test-storybook --coverage --coverageDirectory coverage"
+
   },
   "dependencies": {
+    "@pets/ui": "workspace:*",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "@pets/ui": "workspace:*"
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
-    "@pets/tailwind":  "workspace:*",
     "@chromatic-com/storybook": "^3.2.4",
     "@eslint/js": "^9.17.0",
+    "@pets/tailwind": "workspace:*",
+    "@storybook/addon-coverage": "^1.0.5",
     "@storybook/addon-essentials": "^8.5.0",
     "@storybook/addon-interactions": "^8.5.0",
     "@storybook/addon-onboarding": "^8.5.0",
@@ -27,6 +30,7 @@
     "@storybook/react": "^8.5.0",
     "@storybook/react-vite": "^8.5.0",
     "@storybook/test": "^8.5.0",
+    "@storybook/test-runner": "^0.21.0",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
@@ -41,6 +45,7 @@
     "tailwindcss": "^3.4.1",
     "typescript": "~5.6.2",
     "typescript-eslint": "^8.18.2",
-    "vite": "^6.0.5"
+    "vite": "^6.0.5",
+    "vite-plugin-istanbul": "^6.0.2"
   }
 }
