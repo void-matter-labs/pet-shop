@@ -25,8 +25,11 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Install Playwright
+      - name: Install Playwright Dependencies
         run: pnpm exec playwright install-deps
+
+      - name: Install Playwright
+        run: pnpm exec playwright install
 
       - name: Build Storybook
         run: pnpm nx build-storybook docs
