@@ -13,6 +13,7 @@ export default defineConfig({
       ],
       extension: ['.js', '.ts', '.tsx', '.jsx'],
       requireEnv: false,
+      forceBuildInstrument: true,
     }),
   ],
 })

@@ -11,15 +11,25 @@ const config: StorybookConfig = {
       name: '@storybook/addon-coverage',
       options: {
         istanbul: {
-          include: ['../../../packages/pets-ui/src/**'],
+          include: [
+            '../../../packages/pets-ui/src/**',
+            '../src/**'
+          ]
         }
       }
-
     }
   ],
   framework: {
     name: '@storybook/react-vite',
     options: {},
+  },
+  build: {
+    test: {
+      disabledAddons: [
+        '@storybook/addon-docs',
+        '@storybook/addon-essentials/docs',
+      ],
+    },
   },
 };
 export default config;
