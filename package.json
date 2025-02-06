@@ -3,6 +3,9 @@
   "engines": {
     "node": ">=20.0.0"
   },
+  "scripts": {
+    "build:java": "node springBackendBuild.mjs"
+  },
   "devDependencies": {
     "nx": "^20.3.2",
     "prettier": "^2.6.2"
