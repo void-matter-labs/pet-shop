@@ -14,10 +14,10 @@
   "dependencies": {
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "@pets/ui": "workspace:*"
+    "@pets/ui": "workspace:*",
+    "@pets/tailwind":  "workspace:*"
   },
   "devDependencies": {
-    "@pets/tailwind":  "workspace:*",
     "@chromatic-com/storybook": "^3.2.4",
     "@eslint/js": "^9.17.0",
     "@storybook/addon-essentials": "^8.5.0",

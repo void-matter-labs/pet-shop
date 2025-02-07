@@ -1,9 +1,9 @@
 export {
   default as Button,
   type ButtonProps
-} from './components/Button';
+} from './Button';
 
 export {
   default as Radio,
   type RadioProps
-} from './components/Radio';
+} from './Radio';
