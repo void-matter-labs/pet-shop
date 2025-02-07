@@ -22,6 +22,10 @@ dependencies {
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("io.projectreactor:reactor-test")
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+  compileOnly("org.projectlombok:lombok:1.18.30")
+  annotationProcessor("org.projectlombok:lombok:1.18.30")
+  implementation("io.github.cdimascio:dotenv-java:3.1.0")
+  implementation("com.microsoft.azure:msal4j:1.18.0")
 }
 
 tasks.withType<Test> {
