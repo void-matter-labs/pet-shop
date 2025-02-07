@@ -1,6 +1,6 @@
-import { ElementType } from "react";
+import { cloneElement, ElementType } from "react";
 import { tv, type VariantProps } from "tailwind-variants";
-import { PolymorphicComponentProps } from 'util-types'
+import { PolymorphicComponentPropsWithAsChild } from 'util-types'
 
 const button = tv({
   base: "padding-inline-3 padding-block-2",
@@ -22,26 +22,37 @@ const button = tv({
 })
 
 
-export type ButtonProps<T extends ElementType = 'button'> = PolymorphicComponentProps<T, VariantProps<typeof button>>
-
+export type ButtonProps<T extends ElementType = 'button'> = PolymorphicComponentPropsWithAsChild<T, VariantProps<typeof button>>
 
 export default function Button<T extends ElementType = 'button'>({
   border = 'default',
   variantColor = 'primary',
   fullWidth,
   className,
-  href,
   as,
+  asChild,
+  children,
   ...props
 }:ButtonProps<T>) {
-  const Component = href? 'a' : (as ?? 'button')
-
-  return <Component className={button({
+  console.log("Button")
+  const resolvedClassName = button({
     border,
     fullWidth,
     variantColor,
     className
-  })}
-  {...props}
-  />;
+  })
+
+  if(asChild)
+    return cloneElement(children, {
+      className: resolvedClassName,
+      ...props
+    })
+
+  const Component = props.href? 'a' : (as ?? 'button')
+
+  return <Component className={resolvedClassName}
+    {...props}
+  >
+    {children}
+  </Component>;
 }
