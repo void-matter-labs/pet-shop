@@ -12,3 +12,13 @@ export {
   default as Quantity,
   type QuantityProps
 } from './QuantityButton';
+
+export {
+  default as Input,
+  type InputProps
+} from './Input';
+
+export {
+  default as MailSVG,
+  type MailSVGProps
+} from './MailSVG'
