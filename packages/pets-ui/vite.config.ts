@@ -8,7 +8,8 @@ export default defineConfig({
     environment: 'jsdom',
     coverage: {
       all: true,
-      reporter: ["text"]
+      reporter: ["text"],
+      exclude: ["**/*.stories.ts", "**/*.stories.tsx"]
     }
   }
 })
